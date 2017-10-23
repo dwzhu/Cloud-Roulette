@@ -1,0 +1,24 @@
+body {
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(black, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(black, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(black, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(black, white); /* Standard syntax */
+}
+
+#display {
+	padding: 5px;
+}
+
+.numbercard {
+	color: white;
+	padding: 10px;
+}
+
+.card {
+	margin: 1px;
+}
+
+#payoutRules {
+	text-align: center;
+}
