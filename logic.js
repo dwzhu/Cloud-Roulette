@@ -241,7 +241,7 @@ $('button').on("click", function() {
     var total = multiplier * $("#dropdown1").val();
     $('#total').html(Math.round(total * 10000) / 10000);
     var currentBets = JSON.stringify(chipsPlaced).split(',').join(', ');
-    $('#currentBets').html("x1 on: " + currentBets.substring(1, currentBets.length-1))
+    $('#currentBets').html(currentBets.substring(1, currentBets.length-1))
 });
 
 // update bet amount
