@@ -224,8 +224,8 @@ $('#back').click(function() {
 });
 
 //select bet amount
-$("#dropdown1").on("click change", function() {
-    $("#dropdown").html("Bet Amount - " + $("#dropdown1").val());
+$("#dropdown1").on("change click", function() {
+    $("#dropdown1").html("Bet Amount - " + $("#dropdown1").val());
     console.log($('#dropdown1').val())
 });
 
