@@ -224,8 +224,8 @@ $('#back').click(function() {
 });
 
 //select bet amount
-$("#dropdown1").on("change click", function() {
-    $("#dropdown1").html("Bet Amount - " + $("#dropdown1").val());
+$("#dropdown1").on("click change", function() {
+    $("#dropdown").html("Bet Amount - " + $("#dropdown1").val());
     console.log($('#dropdown1').val())
 });
 
@@ -261,7 +261,10 @@ $('#spin').on("click", function() {
 	var betAmt = $("#dropdown1").val();
 	var totalBet = multiplier * betAmt;
 	var lastSpin = Math.floor(Math.random() * 37);
-
+    if (totalBet > balance) {
+        alert("Insufficient funds!");
+        return
+    }
 	balance = balance - totalBet;
 
 	for (var i = 0; i < chipsPlaced.length; i++) {

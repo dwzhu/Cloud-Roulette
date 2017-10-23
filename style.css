@@ -22,3 +22,13 @@ body {
 #payoutRules {
 	text-align: center;
 }
+
+#dropdown #dropdown1{
+    display: none;
+    width: 100%;
+}
+
+#dropdown:hover + #dropdown1,#dropdown1:hover{
+    display: block;
+    z-index: 30;
+}
