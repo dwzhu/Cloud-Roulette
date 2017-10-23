@@ -208,11 +208,7 @@ $('#n36').click(function() {
     console.log(chipsPlaced)
 });
 $('#n0').click(function() {
-    chipsPlaced.push(37);
-    console.log(chipsPlaced)
-});
-$('#n00').click(function() {
-    chipsPlaced.push(38);
+    chipsPlaced.push(0);
     console.log(chipsPlaced)
 });
 
@@ -256,7 +252,7 @@ $('#bet').on("click", function() {
 $('#clearSpins').on("click", function() {
 	prevSpins = [];
 	$('#prevSpins').html()
-})
+});
 
 // spin roulette deducts total bet from balance
 // spin roulette generates random number and for each betted chip checks if it meets win condition (lastSpin)
