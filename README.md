@@ -1,2 +1,2 @@
 # Cloud-Roulette
-<a link="cloudroulette.com">cloudroulette.com</a>
+<link>cloudroulette.com</link>
