@@ -11,40 +11,42 @@ var firstHalf = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 var secondHalf = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
 var chipsPlaced = [];
 var prevSpins = [];
+var redSpins = [];
+var blackSpins = [];
 var balance = 10;
 
 // click to bet (1 chip per click)
 $('#n1to12').click(function() {
-    chipsPlaced.push("1to12");
+    chipsPlaced.push("1-12");
     console.log(chipsPlaced)
     console.log(multiplier)
 });
 $('#n13to24').click(function() {
-    chipsPlaced.push("13to24");
+    chipsPlaced.push("13-24");
     console.log(chipsPlaced)
 });
 $('#n25to36').click(function() {
-    chipsPlaced.push("25to36");
+    chipsPlaced.push("25-36");
     console.log(chipsPlaced)
 });
 $('#ntoprow').click(function() {
-    chipsPlaced.push("toprow");
+    chipsPlaced.push("Left");
     console.log(chipsPlaced)
 });
 $('#nmidrow').click(function() {
-    chipsPlaced.push("midrow");
+    chipsPlaced.push("Mid");
     console.log(chipsPlaced)
 });
 $('#nbotrow').click(function() {
-    chipsPlaced.push("botrow");
+    chipsPlaced.push("Right");
     console.log(chipsPlaced)
 });
 $('#n1to18').click(function() {
-    chipsPlaced.push("1to18");
+    chipsPlaced.push("1-18");
     console.log(chipsPlaced)
 });
 $('#n19to36').click(function() {
-    chipsPlaced.push("19to36");
+    chipsPlaced.push("19-36");
     console.log(chipsPlaced)
 });
 $('#neven').click(function() {
@@ -225,7 +227,7 @@ $('#back').click(function() {
 
 //select bet amount
 $("#dropdown1").on("click change", function() {
-    $("#dropdown").html("Bet Amount - " + $("#dropdown1").val());
+    $("#dropdown").html("Bet Amount: " + $("#dropdown1").val());
     console.log($('#dropdown1').val())
 });
 
@@ -248,12 +250,6 @@ $('#bet').on("click", function() {
     $('#total').html(Math.round(totalBet * 10000) / 10000)
 });
 
-// clear spin history
-$('#clearSpins').on("click", function() {
-	prevSpins = [];
-	$('#prevSpins').html()
-});
-
 // spin roulette deducts total bet from balance
 // spin roulette generates random number and for each betted chip checks if it meets win condition (lastSpin)
 $('#spin').on("click", function() {
@@ -271,42 +267,42 @@ $('#spin').on("click", function() {
 		if (chipsPlaced[i]===lastSpin) {
 			balance = balance + betAmt * 37;
 		};
-		if (chipsPlaced[i]==="1to12") {
+		if (chipsPlaced[i]==="1-12") {
 			if (firstTwelve.includes(lastSpin)) {
 			balance = balance + betAmt * 3
 			}
 		};
-		if (chipsPlaced[i]==="13to24") {
+		if (chipsPlaced[i]==="13-24") {
 			if (secondTwelve.includes(lastSpin)) {
 				balance = balance + betAmt * 3
 			}
 		};
-		if (chipsPlaced[i]==="25to36") {
+		if (chipsPlaced[i]==="25-36") {
 			if (thirdTwelve.includes(lastSpin)) {
 				balance = balance + betAmt * 3
 			}
 		};
-		if (chipsPlaced[i]==="toprow") {
+		if (chipsPlaced[i]==="Left") {
 			if (topRow.includes(lastSpin)) {
 				balance = balance + betAmt * 3
 			}
 		};
-		if (chipsPlaced[i]==="midrow") {
+		if (chipsPlaced[i]==="Mid") {
 			if (midRow.includes(lastSpin)) {
 				balance = balance + betAmt * 3
 			}
 		};
-		if (chipsPlaced[i]==="botrow") {
+		if (chipsPlaced[i]==="Right") {
 			if (botRow.includes(lastSpin)) {
 				balance = balance + betAmt * 3
 			}
 		};
-		if (chipsPlaced[i]==="1to18") {
+		if (chipsPlaced[i]==="1-18") {
 			if (firstHalf.includes(lastSpin)) {
 				balance = balance + betAmt * 2
 			}
 		};
-		if (chipsPlaced[i]==="19to36") {
+		if (chipsPlaced[i]==="19-36") {
 			if (secondHalf.includes(lastSpin)) {
 				balance = balance + betAmt * 2
 			}
@@ -323,16 +319,47 @@ $('#spin').on("click", function() {
 		};
 	};
 
-	$('#lastSpin').html(lastSpin);
-	prevSpins.push(lastSpin);
-	var spinDisplay;
-	if (prevSpins.length > 7) {
-		spinDisplay = JSON.stringify(prevSpins.slice(prevSpins.length - 7)).split(',').join(', ')
-	}
-	else {
-		spinDisplay = JSON.stringify(prevSpins.slice()).split(',').join(', ')
-	}
-	$('#prevSpins').html(spinDisplay.substring(1, spinDisplay.length-1))
+    if (red.includes(lastSpin)) {
+        document.getElementById("lastSpin").style.color = "red"
+    };
+
+    if (black.includes(lastSpin)) {
+        document.getElementById("lastSpin").style.color = "black"
+    };
+
+    if (lastSpin === 0) {
+        document.getElementById("lastSpin").style.color = "green"
+    }
+
+    $('#lastSpin').html(lastSpin);
+
+    if (black.includes(lastSpin)) {
+     	blackSpins.push(lastSpin);
+    	var spinDisplay;
+    	if (blackSpins.length > 7) {
+    		spinDisplay = JSON.stringify(blackSpins.slice(blackSpins.length - 7)).split(',').join(', ')
+    	}
+    	else {
+    		spinDisplay = JSON.stringify(blackSpins.slice()).split(',').join(', ')
+
+    	}
+        $('#blackSpins').html(spinDisplay.substring(1, spinDisplay.length-1))
+        console.log("black spins: " + blackSpins)
+    };
+
+    if (red.includes(lastSpin)) {
+        redSpins.push(lastSpin);
+        var spinDisplay;
+        if (redSpins.length > 7) {
+            spinDisplay = JSON.stringify(redSpins.slice(redSpins.length - 7)).split(',').join(', ')
+        }
+        else {
+            spinDisplay = JSON.stringify(redSpins.slice()).split(',').join(', ')
+        }
+        $('#redSpins').html(spinDisplay.substring(1, spinDisplay.length-1))
+        console.log("red spins: " + redSpins)
+    };
+
 	$('#balance').html((Math.round(balance * 10000000) / 10000000))
 });
 
