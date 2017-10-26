@@ -7,7 +7,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <!-- <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script> -->
@@ -20,92 +20,30 @@
             <a href="#" class="brand-logo center"><b>&#9729; Roulette</b></a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="account.html">Account</a></li>
-                <li><a href="rules.html">Rules</a></li>
-                <li><a href="login.html">Log In</a></li>
+                <li><a href="public/account.html">Account</a></li>
+                <li><a href="public/rules.html">Rules</a></li>
+                <li><a href="public/login.html">Log In</a></li>
             </ul>
         </div>
     </nav>
-<div id="table" class="container">
-    <div class="section">
-    </div>
+    <!-- Bet and spin -->
     <div class="row">
-        <div class="col s4">
+    </div>
+    <div class="container">
+        <div class="row">
             <div class="row">
-                <button id="n0" class="card-panel waves-effect waves-light btn green col s12">0</button>
-                <button id="n1" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">1</button>
-                <button id="n2" class="card-panel waves-effect waves-light btn black col s4">2</button>
-                <button id="n3" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">3</button>
-                <button id="n4" class="card-panel waves-effect waves-light btn black col s4">4</button>
-                <button id="n5" class="card-panel waves-effect waves-light btn #e53935 red darken-1  col s4">5</button>
-                <button id="n6" class="card-panel waves-effect waves-light btn black col s4">6</button>
-                <button id="n7" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">7</button>
-                <button id="n8" class="card-panel waves-effect waves-light btn black col s4">8</button>
-                <button id="n9" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">9</button>
-                <button id="n10" class="card-panel waves-effect waves-light btn black col s4">10</button>
-                <button id="n11" class="card-panel waves-effect waves-light btn black col s4">11</button>
-                <button id="n12" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">12</button>
-                <button id="n13" class="card-panel waves-effect waves-light btn black col s4">13</button>
-                <button id="n14" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">14</button>
-                <button id="n15" class="card-panel waves-effect waves-light btn black col s4">15</button>
-                <button id="n16" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">16</button>
-                <button id="n17" class="card-panel waves-effect waves-light btn black col s4">17</button>
-                <button id="n18" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">18</button>
-                <button id="n19" class="card-panel waves-effect waves-light btn black col s4">19</button>
-                <button id="n20" class="card-panel waves-effect waves-light btn black col s4">20</button>
-                <button id="n21" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">21</button>
-                <button id="n22" class="card-panel waves-effect waves-light btn black col s4">22</button>
-                <button id="n23" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">23</button>
-                <button id="n24" class="card-panel waves-effect waves-light btn black col s4">24</button>
-                <button id="n25" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">25</button>
-                <button id="n26" class="card-panel waves-effect waves-light btn black col s4">26</button>
-                <button id="n27" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">27</button>
-                <button id="n28" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">28</button>
-                <button id="n29" class="card-panel waves-effect waves-light btn black col s4">29</button>
-                <button id="n30" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">30</button>
-                <button id="n31" class="card-panel waves-effect waves-light btn black col s4">31</button>
-                <button id="n32" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">32</button>
-                <button id="n33" class="card-panel waves-effect waves-light btn black col s4">33</button>
-                <button id="n34" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">34</button>
-                <button id="n35" class="card-panel waves-effect waves-light btn black col s4">35</button>
-                <button id="n36" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">36</button>
-                <hr>
-                <button id="ntoprow" class="card-panel waves-effect waves-light btn green col s4">Left</button>
-                <button id="nmidrow" class="card-panel waves-effect waves-light btn green col s4">Mid</button>
-                <button id="nbotrow" class="card-panel waves-effect waves-light btn green col s4">Right</button>
-                <button id="n1to12" class="card-panel waves-effect waves-light btn green col s4">1-12</button>
-                <button id="n13to24" class="card-panel waves-effect waves-light btn green col s4">13-24</button>
-                <button id="n25to36" class="card-panel waves-effect waves-light btn green col s4">25-36</button>
-                <div class="white-text row">
-                    <h5>
-                        <b>
-                            <center>
-                              Select Bets (Payout 3-1) &#8593;
-                            </center>
-                        </b>
-                    </h5>
-                </div>
+                <h4>
+                    Balance: <text id="balance">10</text>฿
+                </h4>
             </div>
-        </div>
-        <div class="col s8">
-            <!-- Bet and spin -->
-            <div class="container">
+            <div class="col s5">
                 <div class="row">
-                    <h5>
-                        <b>
-                        &#8592; Select Bets (Payout 36-1) 
-                        </b>
-                    </h5>
-                </div>
-                <div class="row">
-                    <button id="spin" class="orange waves-effect waves-light btn btn-large col s3"><b>SPIN x1</b></button>
-                    <div id="auto" class="col s3"></div>
-                    <button id="back" class="waves-effect waves-light btn btn-large col s3">back</button>
-                    <button id="clear" class="waves-effect waves-light btn btn-large col s3">clear</button>
-                </div>
-                <div class="row">
-                    <a class='orange dropdown-button btn col s12' id="dropdown" data-beloworigin="false" href='#' data-activates='dropdown1'>Hover Here to Select Bet Amount</a>
-        
+                    <a class='orange dropdown-button btn col s12' id="dropdown" data-beloworigin="false" href='#' data-activates='dropdown1'>
+                        <u>
+                            0.00
+                        </u>
+                        ฿ per bet &#8597;
+                    </a>
                     <select id='dropdown1' class='dropdown-content col s1'>
                         <option value="0.0001" id="0.0001">0.0001</option>
                         <option value="0.001" id="0.001">0.001</option>
@@ -113,29 +51,50 @@
                         <option value="0.1" id="0.1">0.1</option>
                         <option value="1" id="1">1</option>
                     </select>
-                </div> <!-- Display -->
+                </div>
                 <div class="row">
+                    <button id="spin" class="orange waves-effect waves-light btn btn-large col s3"><b>SPIN x1</b></button>
+                    <div id="auto" class="col s3"></div>
+                    <button id="back" class="waves-effect waves-light btn btn-large col s3">back</button>
+                    <button id="clear" class="waves-effect waves-light btn btn-large col s3">clear</button>
+                </div>
+                
+                <div class="section">
+                </div>
+                <div class="row">
+                    <div id="display" id="Spin" class="card panel col s5">
+                        <h5>
+                        <center>
+                            Result
+                        </center>
+                        </h5>
+                        <hr/>
+                        <h5>
+                        <center>
+                            <a id="lastSpin">32</a>
+                        </center>
+                        </h5>
+                    </div>
+                    <div class="col s2"></div>
                     <div id="display" class="card panel col s5">
                         <h5>
-                            # Bets: <a id="multiplier">0</a>
+                            <center>
+                                Total Bet
+                            </center>
                         </h5>
                         <hr/>
                         <h5>
-                            Total Bet: <a id="total">0</a>
-                        </h5> 
-                    </div>
-                    <div class="col s1"></div>
-                    <div id="display" id="Spin" class="white-text orange card panel col s6">
-                        <h5>
-                            Result: <a id="lastSpin">N/A</a>
-                        </h5>
-                        <hr/>
-                        <h5>
-                        <text>
-                            Balance: <text id="balance">10</text>฿
-                        </text>
+                            <center>
+                                <a id="total">0</a>
+                            </center>
                         </h5>
                     </div>
+                </div>
+            </div>
+            <div class="col s1">
+            </div>
+            <div class="col s6">
+                <div class="row">
                     <div class="card-panel large col s12">
                         <h5>Current Bets</h5>
                         <hr/>
@@ -144,42 +103,87 @@
                     <div class="card-panel large col s12">
                         <h5>Previous Spins</h5>
                         <hr/>
-                        <p class="col s6">RED: 
-                        <h5>
-                        <a class="col s12" id="redSpins"></a>
-                        </h5>
+                        <p class="col s6">RED:
+                            <h5>
+                            <a class="col s12" id="redSpins"></a>
+                            </h5>
                         </p>
-                        <p class="col s6">BLACK: 
-                        <h5>
-                        <a class="col s12" id="blackSpins"></a>
-                        </h5>
+                        <p class="col s6">BLACK:
+                            <h5>
+                            <a class="col s12" id="blackSpins"></a>
+                            </h5>
                         </p>
                     </div>
-                </div>
-                <hr class="row">
-                <div class="row">
-                    <button id="neven" class="card-panel waves-effect waves-light btn green col s3">Even</button>
-                    <button id="nred" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s3">Red</button>
-                    <button id="nblack" class="card-panel waves-effect waves-light btn black col s3">Black</button>
-                    <button id="nodd" class="card-panel waves-effect waves-light btn green col s3">Odd</button>
-                    <button id="n1to18" class="card-panel waves-effect waves-light btn green col s6">1-18</button>
-                    <button id="n19to36" class="card-panel waves-effect waves-light btn green col s6">19-36</button>
-                </div>
-                <div class="white-text row">
-                    <h5>
-                        <center>
-                            <b>
-                                &#8593; Select Bets (Payout 2-1)
-                            </b>
-                        </center>
-                    </h5>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
+    </div>
+    <div class="container">
+        <div id="table" class="row card-panel">
+            <div class="col s1">
+                <div class="row">
+                    <button id="n0" class="card-panel waves-effect waves-light btn green col s12">0</button>
+                </div>
+            </div>
+            <div class="col s10">
+                <div class="row">
+                    <button id="n1" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">1</button>
+                    <button id="n4" class="card-panel waves-effect waves-light btn black col s1">4</button>
+                    <button id="n7" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">7</button>
+                    <button id="n10" class="card-panel waves-effect waves-light btn black col s1">10</button>
+                    <button id="n13" class="card-panel waves-effect waves-light btn black col s1">13</button>
+                    <button id="n16" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">16</button>
+                    <button id="n19" class="card-panel waves-effect waves-light btn black col s1">19</button>
+                    <button id="n22" class="card-panel waves-effect waves-light btn black col s1">22</button>
+                    <button id="n25" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">25</button>
+                    <button id="n28" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">28</button>
+                    <button id="n31" class="card-panel waves-effect waves-light btn black col s1">31</button>
+                    <button id="n34" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">34</button>
+                    <button id="n2" class="card-panel waves-effect waves-light btn black col s1">2</button>
+                    <button id="n5" class="card-panel waves-effect waves-light btn #e53935 red darken-1  col s1">5</button>
+                    <button id="n8" class="card-panel waves-effect waves-light btn black col s1">8</button>
+                    <button id="n11" class="card-panel waves-effect waves-light btn black col s1">11</button>
+                    <button id="n14" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">14</button>
+                    <button id="n17" class="card-panel waves-effect waves-light btn black col s1">17</button>
+                    <button id="n20" class="card-panel waves-effect waves-light btn black col s1">20</button>
+                    <button id="n23" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">23</button>
+                    <button id="n26" class="card-panel waves-effect waves-light btn black col s1">26</button>
+                    <button id="n29" class="card-panel waves-effect waves-light btn black col s1">29</button>
+                    <button id="n32" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">32</button>
+                    <button id="n35" class="card-panel waves-effect waves-light btn black col s1">35</button>
+                    <button id="n3" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">3</button>
+                    <button id="n6" class="card-panel waves-effect waves-light btn black col s1">6</button>
+                    <button id="n9" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">9</button>
+                    <button id="n12" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">12</button>
+                    <button id="n15" class="card-panel waves-effect waves-light btn black col s1">15</button>
+                    <button id="n18" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">18</button>
+                    <button id="n21" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">21</button>
+                    <button id="n24" class="card-panel waves-effect waves-light btn black col s1">24</button>
+                    <button id="n27" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">27</button>
+                    <button id="n30" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">30</button>
+                    <button id="n33" class="card-panel waves-effect waves-light btn black col s1">33</button>
+                    <button id="n36" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s1">36</button>
+                    <button id="n1to12" class="card-panel waves-effect waves-light btn green col s4">1st12</button>
+                    <button id="n13to24" class="card-panel waves-effect waves-light btn green col s4">2nd12</button>
+                    <button id="n25to36" class="card-panel waves-effect waves-light btn green col s4">3rd12</button>
+                    <button id="neven" class="card-panel waves-effect waves-light btn green col s2">Even</button>
+                    <button id="nred" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s2">Red</button>
+                    <button id="nblack" class="card-panel waves-effect waves-light btn black col s2">Black</button>
+                    <button id="nodd" class="card-panel waves-effect waves-light btn green col s2">Odd</button>
+                    <button id="n1to18" class="card-panel waves-effect waves-light btn green col s2">1-18</button>
+                    <button id="n19to36" class="card-panel waves-effect waves-light btn green col s2">19-36</button>
+                </div>
+            </div>
+            <div class="col s1">
+                <div class="row">
+                    <button id="ntoprow" class="card-panel waves-effect waves-light btn green col s12">2to1</button>
+                    <button id="nmidrow" class="card-panel waves-effect waves-light btn green col s12">2to1</button>
+                    <button id="nbotrow" class="card-panel waves-effect waves-light btn green col s12">2to1</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
     <footer class="black accent-4 page-footer">
         <div class="container">
@@ -207,4 +211,4 @@
 </body>
 
 </html>
-<script src="logic.js"></script>
+<script src="app/logic.js"></script>

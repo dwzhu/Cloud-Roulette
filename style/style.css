@@ -28,6 +28,11 @@ button {
     border-color: black;
 }
 
+#table {
+    background-image: url("../images/table.jpg");   
+    background-size: 100%; 
+}
+
 #outside {
 /*    transform: rotate(90deg);
 */   display: flex;
