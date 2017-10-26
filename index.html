@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+    <!-- <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script> -->
 </head>
 
 <body>
@@ -70,12 +70,21 @@
                 <button id="n35" class="card-panel waves-effect waves-light btn black col s4">35</button>
                 <button id="n36" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s4">36</button>
                 <hr>
-                <button id="ntoprow" class="card-panel waves-effect waves-light btn green col s4">Left (2-1)</button>
-                <button id="nmidrow" class="card-panel waves-effect waves-light btn green col s4">Mid (2-1)</button>
-                <button id="nbotrow" class="card-panel waves-effect waves-light btn green col s4">Right (2-1)</button>
+                <button id="ntoprow" class="card-panel waves-effect waves-light btn green col s4">Left</button>
+                <button id="nmidrow" class="card-panel waves-effect waves-light btn green col s4">Mid</button>
+                <button id="nbotrow" class="card-panel waves-effect waves-light btn green col s4">Right</button>
                 <button id="n1to12" class="card-panel waves-effect waves-light btn green col s4">1-12</button>
                 <button id="n13to24" class="card-panel waves-effect waves-light btn green col s4">13-24</button>
                 <button id="n25to36" class="card-panel waves-effect waves-light btn green col s4">25-36</button>
+                <div class="white-text row">
+                    <h5>
+                        <b>
+                            <center>
+                              Select Bets (Payout 3-1) &#8593;
+                            </center>
+                        </b>
+                    </h5>
+                </div>
             </div>
         </div>
         <div class="col s8">
@@ -84,18 +93,19 @@
                 <div class="row">
                     <h5>
                         <b>
-                        <--- Place bets (36-1)
+                        &#8592; Select Bets (Payout 36-1) 
                         </b>
                     </h5>
                 </div>
                 <div class="row">
-                    <button id="spin" class="orange waves-effect waves-light btn btn-large col s3">SPIN x1</button>
-                    <button id="auto" class="orange waves-effect waves-light btn btn-large col s3">Auto 0.5s</button>
+                    <button id="spin" class="orange waves-effect waves-light btn btn-large col s3"><b>SPIN x1</b></button>
+                    <div id="auto" class="col s3"></div>
                     <button id="back" class="waves-effect waves-light btn btn-large col s3">back</button>
                     <button id="clear" class="waves-effect waves-light btn btn-large col s3">clear</button>
                 </div>
                 <div class="row">
-                    <a class='orange dropdown-button btn col s12' id="dropdown" data-activates='dropdown1'>Bet Amount: </a>
+                    <a class='orange dropdown-button btn col s12' id="dropdown" data-beloworigin="false" href='#' data-activates='dropdown1'>Hover Here to Select Bet Amount</a>
+        
                     <select id='dropdown1' class='dropdown-content col s1'>
                         <option value="0.0001" id="0.0001">0.0001</option>
                         <option value="0.001" id="0.001">0.001</option>
@@ -115,19 +125,21 @@
                         </h5> 
                     </div>
                     <div class="col s1"></div>
-                    <div id="display" id="Spin" class="card panel col s6">
+                    <div id="display" id="Spin" class="white-text orange card panel col s6">
                         <h5>
-                            Last Spin: <a id="lastSpin">0</a>
+                            Result: <a id="lastSpin">N/A</a>
                         </h5>
                         <hr/>
                         <h5>
-                            Balance: <a id="balance">10</a>
+                        <text>
+                            Balance: <text id="balance">10</text>฿
+                        </text>
                         </h5>
                     </div>
                     <div class="card-panel large col s12">
                         <h5>Current Bets</h5>
                         <hr/>
-                        <h5><a id="currentBets"></a></h5>
+                        <h5><a id="currentBets">N/A</a></h5>
                     </div>
                     <div class="card-panel large col s12">
                         <h5>Previous Spins</h5>
@@ -157,16 +169,9 @@
                     <h5>
                         <center>
                             <b>
-                                ^ Place bets (2-1) ^
+                                &#8593; Select Bets (Payout 2-1)
                             </b>
                         </center>
-                    </h5>
-                </div>
-                <div class="white-text row">
-                    <h5>
-                        <b>
-                            <--- Place bets (3-1)
-                        </b>
                     </h5>
                 </div>
             </div>

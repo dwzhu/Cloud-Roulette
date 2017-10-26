@@ -15,6 +15,8 @@ var redSpins = [];
 var blackSpins = [];
 var balance = 10;
 
+var multiplier = chipsPlaced.length;
+
 // click to bet (1 chip per click)
 $('#n1to12').click(function() {
     chipsPlaced.push("1-12");
@@ -217,24 +219,44 @@ $('#n0').click(function() {
 //remove bets/chips from board
 $('#clear').click(function() {
     chipsPlaced = [];
-    console.log(chipsPlaced)
+    console.log(chipsPlaced);
+    $('#currentBets').html("N/A")
 });
 
 $('#back').click(function() {
     chipsPlaced.pop();
     console.log(chipsPlaced)
+    if (chipsPlaced.length === 1) {
+        $('#currentBets').html("N/A")
+    }
 });
 
+//dropdown to place bet
+$('.dropdown-button').dropdown({
+      inDuration: 33,
+      outDuration: 999,
+      constrainWidth: true, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+      
+$('.dropdown-button').dropdown('open');
+
+$('.dropdown-button').dropdown('close');
+
 //select bet amount
-$("#dropdown1").on("click change", function() {
-    $("#dropdown").html("Bet Amount: " + $("#dropdown1").val());
+$("#dropdown1").on("change", function() {
+    $("#dropdown").html("<u>" + $("#dropdown1").val() + "</u>฿ per bet");
     console.log($('#dropdown1').val())
 });
 
 // calculate bet amount x chip amount
 // display current bets
 $('button').on("click", function() {
-    var multiplier = chipsPlaced.length;
     $('#multiplier').html(multiplier);
     var total = multiplier * $("#dropdown1").val();
     $('#total').html(Math.round(total * 10000) / 10000);
@@ -244,7 +266,6 @@ $('button').on("click", function() {
 
 // update bet amount
 $('#bet').on("click", function() {
-    var multiplier = chipsPlaced.length;
     $('#multiplier').html(multiplier);
     var totalBet = multiplier * $("#dropdown1").val();
     $('#total').html(Math.round(totalBet * 10000) / 10000)
