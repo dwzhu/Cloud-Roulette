@@ -1,3 +1,7 @@
+html {
+    font-family: Verdana;
+}
+
 body {
     background: red;
     /* For browsers that do not support gradients */
@@ -34,8 +38,12 @@ button {
     float: left;
 }
 
+#spin {
+    max-height: 50%;
+}
+
 #currentBetPanel {
-    height: 195px;
+    min-height: 195px;
 }
 
 .input-field input[type=date]:focus+label,

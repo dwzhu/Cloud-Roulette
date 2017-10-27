@@ -32,56 +32,47 @@
     <div class="container">
         <div class="row">
             <div class="col s5">
-                <div class="section">
-                </div>
                 <div class="row">
-                    <a class='orange dropdown-button btn col s12' id="dropdown" data-beloworigin="false" href='#' data-activates='dropdown1'>
-                        <u>
-                            0.0001
-                        </u>
-                        ฿ per bet &#8597;
-                    </a>
-                    <select id='dropdown1' class='dropdown-content col s1'>
-                        <option value="0.0001" id="0.0001">0.0001</option>
-                        <option value="0.001" id="0.001">0.001</option>
-                        <option value="0.01" id="0.01">0.01</option>
-                        <option value="0.1" id="0.1">0.1</option>
-                        <option value="1" id="1">1</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <button id="spin" class="orange waves-effect waves-light btn btn-large col s5"><b>⟲ SPIN</b></button>
-                    <div id="auto" class="col s2"></div>
-                    <button id="back" class="waves-effect waves-light btn btn-large col s5">back</button>
-                </div>
-                <div class="row">
-                    <div id="display" id="Spin" class="card panel col s5">
+                    <div class="card-panel input-field col s12">
+                        <select id="betInput">
+                            <option value="" disabled selected>Select Bet Amount</option>
+                            <option value="0.0001" id="0.0001">0.0001 ฿</option>
+                            <option value="0.001" id="0.001">0.001 ฿</option>
+                            <option value="0.01" id="0.01">0.01 ฿</option>
+                            <option value="0.1" id="0.1">0.1 ฿</option>
+                            <option value="1" id="1">1 ฿</option>
+                        </select>
+                    </div>
+                    <div id="display" id="Spin" class="card-panel col s5">
                         <h5>
                         <center>
                             Result
                         </center>
                         </h5>
                         <hr class="row"/>
-                        <h5>
+                        <h3>
                         <center>
-                            <a id="lastSpin">Spin!</a>
+                            <a id="lastSpin">SPIN</a>
                         </center>
-                        </h5>
+                        </h3>
                     </div>
                     <div class="col s2"></div>
                     <div id="display" class="card panel col s5">
                         <h5>
                             <center>
-                                Cost
+                                Total Bet
                             </center>
                         </h5>
                         <hr class="row"/>
                         <h5>
-                            <center>
-                                <a class="green-text" id="total">0</a>
-                            </center>
+                            <center><a class="green-text" id="total">0</a>  ฿</center>
                         </h5>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col s2">
+                    </div>
+                    <button id="spin" class="orange waves-effect waves-light btn btn-large col s8"><b> SPIN </b></button>
                 </div>
             </div>
             <div class="col s1">
@@ -90,13 +81,18 @@
                 <div class="row">
                     <div class="card-panel large col s12">
                         <h5>
-                            Balance: <text class="green-text" id="balance">10</text>฿
+                            Balance: <text class="green-text" id="balance">10</text> ฿
+                        </h5>
+                    </div>
+                    <div class="card-panel large col s12">
+                        <h5>
+                            Change: <text class="green-text" id="payout">0</text> ฿
                         </h5>
                     </div>
                     <div id="currentBetPanel" class="card-panel large col s12">
                         <div class="row">
                             <h5 class="col s10">Current Bets</h5>
-                            <button id="clear" class="btn-primary waves-light btn col s2">clear</button>
+                            <div id="clear" class="btn-primary waves-light btn col s2">clear</div>
                             <hr class="col s12"></hr>
                             <h5 class="col s12"><a id="currentBets"></a></h5>
                         </div>
