@@ -29,247 +29,247 @@ $(document).ready(function() {
     $('#n1to12').click(function() {
         chipsPlaced.push("1-12");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>1st12</a>")
+        $("#currentBets").append("<a class='green-text col s3'>1st12</a>")
     });
     $('#n13to24').click(function() {
         chipsPlaced.push("13-24");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>2nd12</a>")
+        $("#currentBets").append("<a class='green-text col s3'>2nd12</a>")
     });
     $('#n25to36').click(function() {
         chipsPlaced.push("25-36");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>3rd12</a>")
+        $("#currentBets").append("<a class='green-text col s3'>3rd12</a>")
     });
     $('#ntoprow').click(function() {
         chipsPlaced.push("Top");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>Top</a>")
+        $("#currentBets").append("<a class='green-text col s3'>Top</a>")
     });
     $('#nmidrow').click(function() {
         chipsPlaced.push("Mid");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>Mid</a>")
+        $("#currentBets").append("<a class='green-text col s3'>Mid</a>")
     });
     $('#nbotrow').click(function() {
         chipsPlaced.push("Bottom");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>Bottom</a>")
+        $("#currentBets").append("<a class='green-text col s3'>Bottom</a>")
     });
     $('#n1to18').click(function() {
         chipsPlaced.push("1-18");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>1-18</a>")
+        $("#currentBets").append("<a class='green-text col s3'>1-18</a>")
     });
     $('#n19to36').click(function() {
         chipsPlaced.push("19-36");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>19-36</a>")
+        $("#currentBets").append("<a class='green-text col s3'>19-36</a>")
     });
     $('#neven').click(function() {
         chipsPlaced.push("even");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>Even</a>")
+        $("#currentBets").append("<a class='green-text col s3'>Even</a>")
     });
     $('#nodd').click(function() {
         chipsPlaced.push("odd");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>Odd</a>")
+        $("#currentBets").append("<a class='green-text col s3'>Odd</a>")
     });
     $('#nred').click(function() {
         chipsPlaced.push("red");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>Red</a>")
+        $("#currentBets").append("<a class='red-text col s3'>Red</a>")
     });
     $('#nblack').click(function() {
         chipsPlaced.push("black");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>top</a>")
+        $("#currentBets").append("<a class='black-text col s3'>Black</a>")
     });
     $('#n1').click(function() {
         chipsPlaced.push(1);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>1</a>")
+        $("#currentBets").append("<a class='red-text col s3'>1</a>")
     });
     $('#n2').click(function() {
         chipsPlaced.push(2);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>2</a>")
+        $("#currentBets").append("<a class='black-text col s3'>2</a>")
     });
     $('#n3').click(function() {
         chipsPlaced.push(3);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>3</a>")
+        $("#currentBets").append("<a class='red-text col s3'>3</a>")
     });
     $('#n4').click(function() {
         chipsPlaced.push(4);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>4</a>")
+        $("#currentBets").append("<a class='black-text col s3'>4</a>")
     });
     $('#n5').click(function() {
         chipsPlaced.push(5);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>5</a>")
+        $("#currentBets").append("<a class='red-text col s3'>5</a>")
     });
     $('#n6').click(function() {
         chipsPlaced.push(6);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>6</a>")
+        $("#currentBets").append("<a class='black-text col s3'>6</a>")
     });
     $('#n7').click(function() {
         chipsPlaced.push(7);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>7</a>")
+        $("#currentBets").append("<a class='red-text col s3'>7</a>")
     });
     $('#n8').click(function() {
         chipsPlaced.push(8);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>8</a>")
+        $("#currentBets").append("<a class='black-text col s3'>8</a>")
     });
     $('#n9').click(function() {
         chipsPlaced.push(9);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>9</a>")
+        $("#currentBets").append("<a class='red-text col s3'>9</a>")
     });
     $('#n10').click(function() {
         chipsPlaced.push(10);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>10</a>")
+        $("#currentBets").append("<a class='black-text col s3'>10</a>")
     });
     $('#n11').click(function() {
         chipsPlaced.push(11);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>11</a>")
+        $("#currentBets").append("<a class='black-text col s3'>11</a>")
     });
     $('#n12').click(function() {
         chipsPlaced.push(12);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>12</a>")
+        $("#currentBets").append("<a class='red-text col s3'>12</a>")
     });
     $('#n13').click(function() {
         chipsPlaced.push(13);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>13</a>")
+        $("#currentBets").append("<a class='black-text col s3'>13</a>")
     });
     $('#n14').click(function() {
         chipsPlaced.push(14);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>14</a>")
+        $("#currentBets").append("<a class='red-text col s3'>14</a>")
     });
     $('#n15').click(function() {
         chipsPlaced.push(15);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>15</a>")
+        $("#currentBets").append("<a class='black-text col s3'>15</a>")
     });
     $('#n16').click(function() {
         chipsPlaced.push(16);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>16</a>")
+        $("#currentBets").append("<a class='red-text col s3'>16</a>")
     });
     $('#n17').click(function() {
         chipsPlaced.push(17);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>17</a>")
+        $("#currentBets").append("<a class='black-text col s3'>17</a>")
     });
     $('#n18').click(function() {
         chipsPlaced.push(18);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>18</a>")
+        $("#currentBets").append("<a class='red-text col s3'>18</a>")
     });
     $('#n19').click(function() {
         chipsPlaced.push(19);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>19</a>")
+        $("#currentBets").append("<a class='black-text col s3'>19</a>")
     });
     $('#n20').click(function() {
         chipsPlaced.push(20);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>20</a>")
+        $("#currentBets").append("<a class='black-text col s3'>20</a>")
     });
     $('#n21').click(function() {
         chipsPlaced.push(21);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>21</a>")
+        $("#currentBets").append("<a class='red-text col s3'>21</a>")
     });
     $('#n22').click(function() {
         chipsPlaced.push(22);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>22</a>")
+        $("#currentBets").append("<a class='black-text col s3'>22</a>")
     });
     $('#n23').click(function() {
         chipsPlaced.push(23);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>23</a>")
+        $("#currentBets").append("<a class='red-text col s3'>23</a>")
     });
     $('#n24').click(function() {
         chipsPlaced.push(24);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>24</a>")
+        $("#currentBets").append("<a class='black-text col s3'>24</a>")
     });
     $('#n25').click(function() {
         chipsPlaced.push(25);
         console.log(chipsPlaced)
-        $("#currentBets").append("<a class='red-text col s2'>25</a>")
+        $("#currentBets").append("<a class='red-text col s3'>25</a>")
     });
     $('#n26').click(function() {
         chipsPlaced.push(26);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>26</a>")
+        $("#currentBets").append("<a class='black-text col s3'>26</a>")
     });
     $('#n27').click(function() {
         chipsPlaced.push(27);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>27</a>")
+        $("#currentBets").append("<a class='red-text col s3'>27</a>")
     });
     $('#n28').click(function() {
         chipsPlaced.push(28);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>28</a>")
+        $("#currentBets").append("<a class='red-text col s3'>28</a>")
     });
     $('#n29').click(function() {
         chipsPlaced.push(29);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>29</a>")
+        $("#currentBets").append("<a class='black-text col s3'>29</a>")
     });
     $('#n30').click(function() {
         chipsPlaced.push(30);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>30</a>")
+        $("#currentBets").append("<a class='red-text col s3'>30</a>")
     });
     $('#n31').click(function() {
         chipsPlaced.push(31);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>31</a>")
+        $("#currentBets").append("<a class='black-text col s3'>31</a>")
     });
     $('#n32').click(function() {
         chipsPlaced.push(32);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>32</a>")
+        $("#currentBets").append("<a class='red-text col s3'>32</a>")
     });
     $('#n33').click(function() {
         chipsPlaced.push(33);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>33</a>")
+        $("#currentBets").append("<a class='black-text col s3'>33</a>")
     });
     $('#n34').click(function() {
         chipsPlaced.push(34);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>34</a>")
+        $("#currentBets").append("<a class='red-text col s3'>34</a>")
     });
     $('#n35').click(function() {
         chipsPlaced.push(35);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s2'>35</a>")
+        $("#currentBets").append("<a class='black-text col s3'>35</a>")
     });
     $('#n36').click(function() {
         chipsPlaced.push(36);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s2'>36</a>")
+        $("#currentBets").append("<a class='red-text col s3'>36</a>")
     });
     $('#n0').click(function() {
         chipsPlaced.push(0);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s2'>0</a>")
+        $("#currentBets").append("<a class='green-text col s3'>0</a>")
     });
 
     //remove bets/chips from board
@@ -284,22 +284,6 @@ $(document).ready(function() {
     $('#clearHistory').on('click', function() {
         $('#spinDisplay').empty()
     })
-
-    //dropdown to place bet
-    $('.dropdown-button').dropdown({
-        inDuration: 33,
-        outDuration: 999,
-        constrainWidth: true, // Does not change width of dropdown to that of the activator
-        hover: true, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: false, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-    });
-
-    $('.dropdown-button').dropdown('open');
-
-    $('.dropdown-button').dropdown('close');
 
     //select bet amount
     $("#dropdown1").on("change", function() {
