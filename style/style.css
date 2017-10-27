@@ -1,13 +1,13 @@
 body {
     background: red;
     /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(white, black);
+    background: -webkit-linear-gradient(black, darkred);
     /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(white, black);
+    background: -o-linear-gradient(black, darkred);
     /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, black);
+    background: -moz-linear-gradient(black, darkred);
     /* For Firefox 3.6 to 15 */
-    background: linear-gradient(white, black);
+    background: linear-gradient(black, darkred);
     /* Standard syntax */
     display: flex;
     min-height: 100vh;
@@ -28,15 +28,14 @@ button {
     border-color: black;
 }
 
-#table {
-    background-image: url("../images/table.jpg");   
-    background-size: 100%; 
-}
-
 #outside {
 /*    transform: rotate(90deg);
 */   display: flex;
     float: left;
+}
+
+#currentBetPanel {
+    height: 195px;
 }
 
 .input-field input[type=date]:focus+label,

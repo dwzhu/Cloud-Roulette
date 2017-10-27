@@ -13,7 +13,7 @@
     <!-- <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script> -->
 </head>
 
-<body>
+<body> 
     <!-- Navbar -->
     <nav>
         <div class="black accent-4 nav-wrapper">
@@ -31,16 +31,13 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="row">
-                <h4>
-                    Balance: <text id="balance">10</text>฿
-                </h4>
-            </div>
             <div class="col s5">
+                <div class="section">
+                </div>
                 <div class="row">
                     <a class='orange dropdown-button btn col s12' id="dropdown" data-beloworigin="false" href='#' data-activates='dropdown1'>
                         <u>
-                            0.00
+                            0.0001
                         </u>
                         ฿ per bet &#8597;
                     </a>
@@ -53,13 +50,9 @@
                     </select>
                 </div>
                 <div class="row">
-                    <button id="spin" class="orange waves-effect waves-light btn btn-large col s3"><b>SPIN x1</b></button>
-                    <div id="auto" class="col s3"></div>
-                    <button id="back" class="waves-effect waves-light btn btn-large col s3">back</button>
-                    <button id="clear" class="waves-effect waves-light btn btn-large col s3">clear</button>
-                </div>
-                
-                <div class="section">
+                    <button id="spin" class="orange waves-effect waves-light btn btn-large col s5"><b>⟲ SPIN</b></button>
+                    <div id="auto" class="col s2"></div>
+                    <button id="back" class="waves-effect waves-light btn btn-large col s5">back</button>
                 </div>
                 <div class="row">
                     <div id="display" id="Spin" class="card panel col s5">
@@ -68,10 +61,10 @@
                             Result
                         </center>
                         </h5>
-                        <hr/>
+                        <hr class="row"/>
                         <h5>
                         <center>
-                            <a id="lastSpin">32</a>
+                            <a id="lastSpin">Spin!</a>
                         </center>
                         </h5>
                     </div>
@@ -79,13 +72,13 @@
                     <div id="display" class="card panel col s5">
                         <h5>
                             <center>
-                                Total Bet
+                                Cost
                             </center>
                         </h5>
-                        <hr/>
+                        <hr class="row"/>
                         <h5>
                             <center>
-                                <a id="total">0</a>
+                                <a class="green-text" id="total">0</a>
                             </center>
                         </h5>
                     </div>
@@ -96,23 +89,17 @@
             <div class="col s6">
                 <div class="row">
                     <div class="card-panel large col s12">
-                        <h5>Current Bets</h5>
-                        <hr/>
-                        <h5><a id="currentBets">N/A</a></h5>
+                        <h5>
+                            Balance: <text class="green-text" id="balance">10</text>฿
+                        </h5>
                     </div>
-                    <div class="card-panel large col s12">
-                        <h5>Previous Spins</h5>
-                        <hr/>
-                        <p class="col s6">RED:
-                            <h5>
-                            <a class="col s12" id="redSpins"></a>
-                            </h5>
-                        </p>
-                        <p class="col s6">BLACK:
-                            <h5>
-                            <a class="col s12" id="blackSpins"></a>
-                            </h5>
-                        </p>
+                    <div id="currentBetPanel" class="card-panel large col s12">
+                        <div class="row">
+                            <h5 class="col s10">Current Bets</h5>
+                            <button id="clear" class="btn-primary waves-light btn col s2">clear</button>
+                            <hr class="col s12"></hr>
+                            <h5 class="col s12"><a id="currentBets"></a></h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,7 +107,7 @@
     </div>
     </div>
     <div class="container">
-        <div id="table" class="row card-panel">
+        <div id="table" class="row">
             <div class="col s1">
                 <div class="row">
                     <button id="n0" class="card-panel waves-effect waves-light btn green col s12">0</button>
@@ -167,11 +154,11 @@
                     <button id="n1to12" class="card-panel waves-effect waves-light btn green col s4">1st12</button>
                     <button id="n13to24" class="card-panel waves-effect waves-light btn green col s4">2nd12</button>
                     <button id="n25to36" class="card-panel waves-effect waves-light btn green col s4">3rd12</button>
+                    <button id="n1to18" class="card-panel waves-effect waves-light btn green col s2">1-18</button>
                     <button id="neven" class="card-panel waves-effect waves-light btn green col s2">Even</button>
                     <button id="nred" class="card-panel waves-effect waves-light btn #e53935 red darken-1 col s2">Red</button>
                     <button id="nblack" class="card-panel waves-effect waves-light btn black col s2">Black</button>
                     <button id="nodd" class="card-panel waves-effect waves-light btn green col s2">Odd</button>
-                    <button id="n1to18" class="card-panel waves-effect waves-light btn green col s2">1-18</button>
                     <button id="n19to36" class="card-panel waves-effect waves-light btn green col s2">19-36</button>
                 </div>
             </div>
@@ -184,30 +171,24 @@
             </div>
         </div>
     </div>
-    <!-- Footer -->
-    <footer class="black accent-4 page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Roulette1</h5>
-                    <p class="grey-text text-lighten-4">36-1 Inside Odds Roulette, instant payouts</p>
+    <div class="container">
+        <div class="row">
+            <div class="card-panel large col s12">
+                <div class="row">
+                    <div class="col s1">
+                    </div>
+                    <h4 class="col s10"><center>Previous Spins</center></h4>
+                    <button id="clearHistory" class="btn-primary waves-effect btn col s1">clear</button>
                 </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Terms and Conditions</a></li>
-                    </ul>
+                <hr class="row"/>
+                <h5>
+                    <a class="col s12" id="spinDisplay"></a>
+                </h5>
+                <div class="row">
                 </div>
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2017 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
+    </div>
 </body>
 
 </html>
