@@ -20,8 +20,9 @@ $(document).ready(function() {
 
     $('select').material_select();
     $('select').on("click change", function() {
+        var betAmt = $("#betInput").val();
         var multiplier = chipsPlaced.length;
-        var totalBet = multiplier * $("#betInput").val();
+        var totalBet = multiplier * betAmt;
         $('#total').html(Math.round(totalBet * 10000) / 10000)
     })
 
@@ -285,12 +286,6 @@ $(document).ready(function() {
         $('#spinDisplay').empty()
     })
 
-    //select bet amount
-    $("#dropdown1").on("change", function() {
-        $("#dropdown").html("<u>" + $("#betInput").val() + "</u>฿ per bet");
-        console.log($('#betInput').val())
-    });
-
     // calculate bet amount x chip amount
     // display current bets
     $('button').on("click", function() {
@@ -436,15 +431,6 @@ $(document).ready(function() {
         console.log("Payout: " + (Math.round(payout * 10000000) / 10000000) + ", Current Balance: " + (Math.round(balance * 10000000) / 10000000));
         console.log("Last Spin: " + lastSpin)
     });
-
-    // #('#autoSpin').on("click", function() {
-    //     var myVar = setInterval(spinFunction, 1000);
-
-    //     function spinFunction() {
-    //         var d = new Date();
-    //         document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-    //     }
-    // })
 
     console.log("Javascript connected!")
 });
