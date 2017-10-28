@@ -5,13 +5,13 @@ html {
 body {
     background: red;
     /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(black, darkred);
+    background: -webkit-linear-gradient(darkred, black);
     /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(black, darkred);
+    background: -o-linear-gradient(darkred, black);
     /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(black, darkred);
+    background: -moz-linear-gradient(darkred, black);
     /* For Firefox 3.6 to 15 */
-    background: linear-gradient(black, darkred);
+    background: linear-gradient(darkred, black);
     /* Standard syntax */
     display: flex;
     min-height: 100vh;
@@ -21,10 +21,13 @@ body {
 main {
     flex: 1 0 auto;
 }
-
-.nav-wrapper .page-footer {
-    background-color: blue;
-}
+/*
+#table {
+    background-image: url("../images/rwheel.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}*/
 
 button {
     border-style: solid;
@@ -33,8 +36,7 @@ button {
 }
 
 #outside {
-/*    transform: rotate(90deg);
-*/   display: flex;
+   display: flex;
     float: left;
 }
 
@@ -43,8 +45,13 @@ button {
 }
 
 #currentBetPanel {
-    min-height: 195px;
+    min-height: 150px;
 }
+
+#spinHistory {
+    min-height: 150px;
+}
+
 
 .input-field input[type=date]:focus+label,
 .input-field input[type=text]:focus+label,
@@ -65,13 +72,6 @@ button {
     left: 30px;
 }
 
-#redSpins {
-    color: red;
-}
-
-#blackSpins {
-    color: black;
-}
 #payoutRules {
 	text-align: center;
 }
