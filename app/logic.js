@@ -15,9 +15,154 @@ var prevSpins = [];
 var redSpins = [];
 var blackSpins = [];
 var balance = 100;
-// define win conditions
-$(document).ready(function() {
+var auto;
 
+function spinFunction() {
+
+    var prevBalance = balance; 
+    var postBalance;
+    var payout;
+    var multiplier = chipsPlaced.length;
+    var betAmt = $("#betInput").val();
+    var totalBet = multiplier * betAmt;
+    var lastSpin = Math.floor(Math.random() * 37);
+
+    if (totalBet > balance) {
+        alert("Insufficient funds!");
+        console.log("Insufficient funds!")
+        clearInterval(auto);
+        return
+    }
+
+    balance = balance - totalBet;
+
+    for (var i = 0; i < chipsPlaced.length; i++) {
+        if (chipsPlaced[i] === lastSpin) {
+            balance = balance + betAmt * 37;
+        };
+        if (chipsPlaced[i] === "1-12") {
+            if (firstTwelve.includes(lastSpin)) {
+                balance = balance + betAmt * 3
+            }
+        };
+        if (chipsPlaced[i] === "13-24") {
+            if (secondTwelve.includes(lastSpin)) {
+                balance = balance + betAmt * 3
+            }
+        };
+        if (chipsPlaced[i] === "25-36") {
+            if (thirdTwelve.includes(lastSpin)) {
+                balance = balance + betAmt * 3
+            }
+        };
+        if (chipsPlaced[i] === "Top") {
+            if (topRow.includes(lastSpin)) {
+                balance = balance + betAmt * 3
+            }
+        };
+        if (chipsPlaced[i] === "Mid") {
+            if (midRow.includes(lastSpin)) {
+                balance = balance + betAmt * 3
+            }
+        };
+        if (chipsPlaced[i] === "Bottom") {
+            if (botRow.includes(lastSpin)) {
+                balance = balance + betAmt * 3
+            }
+        };
+        if (chipsPlaced[i] === "1-18") {
+            if (firstHalf.includes(lastSpin)) {
+                balance = balance + betAmt * 2
+            }
+        };
+        if (chipsPlaced[i] === "19-36") {
+            if (secondHalf.includes(lastSpin)) {
+                balance = balance + betAmt * 2
+            }
+        };
+        if (chipsPlaced[i] === "red") {
+            if (red.includes(lastSpin)) {
+                balance = balance + betAmt * 2
+            }
+        };
+        if (chipsPlaced[i] === "black") {
+            if (black.includes(lastSpin)) {
+                balance = balance + betAmt * 2
+            }
+        };
+        if (chipsPlaced[i] === "even") {
+            if (lastSpin % 2 === 0) {
+                if (lastSpin !== 0) {
+                    balance = balance + betAmt * 2
+                }
+            }
+        };
+        if (chipsPlaced[i] === "odd") {
+            if (lastSpin % 2 === 1) {
+                if (lastSpin !== 0) {
+                    balance = balance + betAmt * 2
+                }
+            }
+        };
+    };
+
+    //payout
+    postBalance = balance;
+    payout = postBalance - prevBalance;
+
+    if (payout === 0) {
+        $('#payout').html("<a class='black-text'>" + (Math.round(payout * 10000000) / 10000000) + "</a>")
+    }
+
+    if (payout < 0) {
+        $('#payout').html("<a class='red-text'>" + (Math.round(payout * 10000000) / 10000000) + "</a>")
+    };
+
+    if (payout > 0) {
+        $('#payout').html("<a class='green-text'>" + (Math.round(payout * 10000000) / 10000000) + "</a>")
+    };
+
+    $('#balance').html((Math.round(balance * 10000000) / 10000000));
+
+    //display last spin
+    if (red.includes(lastSpin)) {
+        document.getElementById("lastSpin").style.color = "red"
+    };
+
+    if (black.includes(lastSpin)) {
+        document.getElementById("lastSpin").style.color = "black"
+    };
+
+    if (lastSpin === 0) {
+        document.getElementById("lastSpin").style.color = "green"
+    }
+
+    $('#lastSpin').html(lastSpin);
+
+    //display spin history
+    if (black.includes(lastSpin)) {
+        var lastSpinDisplay = "<a id='blackHistory' class='black-text col s11'>" + lastSpin + " </a>";
+        $('#spinDisplay').prepend(lastSpinDisplay)
+    };
+
+    if (red.includes(lastSpin)) {
+        var lastSpinDisplay = "<a id='redHistory' class='red-text col s11'>" + lastSpin + " </a> ";
+        $('#spinDisplay').prepend(lastSpinDisplay)
+    };
+
+    if (zero.includes(lastSpin)) {
+        var lastSpinDisplay = "<a id='zeroHistory'class='green-text col s11'>" + lastSpin + " </a> ";
+        $('#spinDisplay').prepend(lastSpinDisplay)
+    };
+
+    console.log("Bet Amount: " + betAmt + ", TotalBet: " + Math.round(totalBet * 10000000) / 10000000)
+    console.log("Payout: " + (Math.round(payout * 10000000) / 10000000) + ", Current Balance: " + (Math.round(balance * 10000000) / 10000000));
+    console.log("Last Spin: " + lastSpin)
+};
+
+//ready on page load
+$(document).ready(function() {
+    //dropdown to select bet amount
     $('select').material_select();
     $('select').on("click change", function() {
         var betAmt = $("#betInput").val();
@@ -26,255 +171,255 @@ $(document).ready(function() {
         $('#total').html(Math.round(totalBet * 10000) / 10000)
     })
 
-    // click to bet (1 chip per click)
+    // 1 bet per click, display bets
     $('#n1to12').click(function() {
         chipsPlaced.push("1-12");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>1st12</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>1st12</a><div class='row'></div>")
     });
     $('#n13to24').click(function() {
         chipsPlaced.push("13-24");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>2nd12</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>2nd12</a><div class='row'></div>")
     });
     $('#n25to36').click(function() {
         chipsPlaced.push("25-36");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>3rd12</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>3rd12</a><div class='row'></div>")
     });
     $('#ntoprow').click(function() {
         chipsPlaced.push("Top");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>Top</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>Top</a><div class='row'></div>")
     });
     $('#nmidrow').click(function() {
         chipsPlaced.push("Mid");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>Mid</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>Mid</a><div class='row'></div>")
     });
     $('#nbotrow').click(function() {
         chipsPlaced.push("Bottom");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>Bottom</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>Bottom</a><div class='row'></div>")
     });
     $('#n1to18').click(function() {
         chipsPlaced.push("1-18");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>1-18</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>1-18</a><div class='row'></div>")
     });
     $('#n19to36').click(function() {
         chipsPlaced.push("19-36");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>19-36</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>19-36</a><div class='row'></div>")
     });
     $('#neven').click(function() {
         chipsPlaced.push("even");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>Even</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>Even</a><div class='row'></div>")
     });
     $('#nodd').click(function() {
         chipsPlaced.push("odd");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>Odd</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>Odd</a><div class='row'></div>")
     });
     $('#nred').click(function() {
         chipsPlaced.push("red");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>Red</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>Red</a><div class='row'></div>")
     });
     $('#nblack').click(function() {
         chipsPlaced.push("black");
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>Black</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>Black</a><div class='row'></div>")
     });
     $('#n1').click(function() {
         chipsPlaced.push(1);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>1</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>1</a><div class='row'></div>")
     });
     $('#n2').click(function() {
         chipsPlaced.push(2);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>2</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>2</a><div class='row'></div>")
     });
     $('#n3').click(function() {
         chipsPlaced.push(3);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>3</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>3</a><div class='row'></div>")
     });
     $('#n4').click(function() {
         chipsPlaced.push(4);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>4</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>4</a><div class='row'></div>")
     });
     $('#n5').click(function() {
         chipsPlaced.push(5);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>5</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>5</a><div class='row'></div>")
     });
     $('#n6').click(function() {
         chipsPlaced.push(6);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>6</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>6</a><div class='row'></div>")
     });
     $('#n7').click(function() {
         chipsPlaced.push(7);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>7</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>7</a><div class='row'></div>")
     });
     $('#n8').click(function() {
         chipsPlaced.push(8);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>8</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>8</a><div class='row'></div>")
     });
     $('#n9').click(function() {
         chipsPlaced.push(9);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>9</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>9</a><div class='row'></div>")
     });
     $('#n10').click(function() {
         chipsPlaced.push(10);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>10</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>10</a><div class='row'></div>")
     });
     $('#n11').click(function() {
         chipsPlaced.push(11);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>11</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>11</a><div class='row'></div>")
     });
     $('#n12').click(function() {
         chipsPlaced.push(12);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>12</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>12</a><div class='row'></div>")
     });
     $('#n13').click(function() {
         chipsPlaced.push(13);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>13</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>13</a><div class='row'></div>")
     });
     $('#n14').click(function() {
         chipsPlaced.push(14);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>14</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>14</a><div class='row'></div>")
     });
     $('#n15').click(function() {
         chipsPlaced.push(15);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>15</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>15</a><div class='row'></div>")
     });
     $('#n16').click(function() {
         chipsPlaced.push(16);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>16</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>16</a><div class='row'></div>")
     });
     $('#n17').click(function() {
         chipsPlaced.push(17);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>17</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>17</a><div class='row'></div>")
     });
     $('#n18').click(function() {
         chipsPlaced.push(18);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>18</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>18</a><div class='row'></div>")
     });
     $('#n19').click(function() {
         chipsPlaced.push(19);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>19</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>19</a><div class='row'></div>")
     });
     $('#n20').click(function() {
         chipsPlaced.push(20);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>20</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>20</a><div class='row'></div>")
     });
     $('#n21').click(function() {
         chipsPlaced.push(21);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>21</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>21</a><div class='row'></div>")
     });
     $('#n22').click(function() {
         chipsPlaced.push(22);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>22</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>22</a><div class='row'></div>")
     });
     $('#n23').click(function() {
         chipsPlaced.push(23);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>23</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>23</a><div class='row'></div>")
     });
     $('#n24').click(function() {
         chipsPlaced.push(24);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>24</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>24</a><div class='row'></div>")
     });
     $('#n25').click(function() {
         chipsPlaced.push(25);
         console.log(chipsPlaced)
-        $("#currentBets").append("<a class='red-text col s3'>25</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>25</a><div class='row'></div>")
     });
     $('#n26').click(function() {
         chipsPlaced.push(26);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>26</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>26</a><div class='row'></div>")
     });
     $('#n27').click(function() {
         chipsPlaced.push(27);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>27</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>27</a><div class='row'></div>")
     });
     $('#n28').click(function() {
         chipsPlaced.push(28);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>28</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>28</a><div class='row'></div>")
     });
     $('#n29').click(function() {
         chipsPlaced.push(29);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>29</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>29</a><div class='row'></div>")
     });
     $('#n30').click(function() {
         chipsPlaced.push(30);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>30</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>30</a><div class='row'></div>")
     });
     $('#n31').click(function() {
         chipsPlaced.push(31);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>31</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>31</a><div class='row'></div>")
     });
     $('#n32').click(function() {
         chipsPlaced.push(32);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>32</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>32</a><div class='row'></div>")
     });
     $('#n33').click(function() {
         chipsPlaced.push(33);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>33</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>33</a><div class='row'></div>")
     });
     $('#n34').click(function() {
         chipsPlaced.push(34);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>34</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>34</a><div class='row'></div>")
     });
     $('#n35').click(function() {
         chipsPlaced.push(35);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='black-text col s3'>35</a>")
+        $("#currentBets").prepend("<a class='black-text col s12'>35</a><div class='row'></div>")
     });
     $('#n36').click(function() {
         chipsPlaced.push(36);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='red-text col s3'>36</a>")
+        $("#currentBets").prepend("<a class='red-text col s12'>36</a><div class='row'></div>")
     });
     $('#n0').click(function() {
         chipsPlaced.push(0);
         console.log(chipsPlaced);
-        $("#currentBets").append("<a class='green-text col s3'>0</a>")
+        $("#currentBets").prepend("<a class='green-text col s12'>0</a><div class='row'></div>")
     });
 
-    //remove bets/chips from board
-    $('#clear').click(function() {
+    //remove bets from board
+    $('#clear').on("click", function() {
         chipsPlaced = [];
         $("#currentBets").empty();
         $("#total").html("0");
@@ -292,144 +437,21 @@ $(document).ready(function() {
         var multiplier = chipsPlaced.length;
         var totalBet = multiplier * $("#betInput").val();
         $('#total').html(Math.round(totalBet * 10000) / 10000);
-        console.log("total bet: " + Math.round(totalBet * 10000) / 10000)
     });
 
-    // spin roulette deducts total bet from balance
-    // spin roulette generates random number and for each betted chip checks if it meets win condition (lastSpin)
-    // if win condition is met, player is rewarded payout
     $('#spin').on("click", function() {
-        var prevBalance = balance; 
-        var postBalance;
-        var payout;
-        var multiplier = chipsPlaced.length;
-        var betAmt = $("#betInput").val();
-        var totalBet = multiplier * betAmt;
-        var lastSpin = Math.floor(Math.random() * 37);
-        if (totalBet > balance) {
-            alert("Insufficient funds!");
-            return
-        }
-        balance = balance - totalBet;
+        spinFunction();
+    });
 
-        for (var i = 0; i < chipsPlaced.length; i++) {
-            if (chipsPlaced[i] === lastSpin) {
-                balance = balance + betAmt * 37;
-            };
-            if (chipsPlaced[i] === "1-12") {
-                if (firstTwelve.includes(lastSpin)) {
-                    balance = balance + betAmt * 3
-                }
-            };
-            if (chipsPlaced[i] === "13-24") {
-                if (secondTwelve.includes(lastSpin)) {
-                    balance = balance + betAmt * 3
-                }
-            };
-            if (chipsPlaced[i] === "25-36") {
-                if (thirdTwelve.includes(lastSpin)) {
-                    balance = balance + betAmt * 3
-                }
-            };
-            if (chipsPlaced[i] === "Top") {
-                if (topRow.includes(lastSpin)) {
-                    balance = balance + betAmt * 3
-                }
-            };
-            if (chipsPlaced[i] === "Mid") {
-                if (midRow.includes(lastSpin)) {
-                    balance = balance + betAmt * 3
-                }
-            };
-            if (chipsPlaced[i] === "Bottom") {
-                if (botRow.includes(lastSpin)) {
-                    balance = balance + betAmt * 3
-                }
-            };
-            if (chipsPlaced[i] === "1-18") {
-                if (firstHalf.includes(lastSpin)) {
-                    balance = balance + betAmt * 2
-                }
-            };
-            if (chipsPlaced[i] === "19-36") {
-                if (secondHalf.includes(lastSpin)) {
-                    balance = balance + betAmt * 2
-                }
-            };
-            if (chipsPlaced[i] === "red") {
-                if (red.includes(lastSpin)) {
-                    balance = balance + betAmt * 2
-                }
-            };
-            if (chipsPlaced[i] === "black") {
-                if (black.includes(lastSpin)) {
-                    balance = balance + betAmt * 2
-                }
-            };
-            if (chipsPlaced[i] === "even") {
-                if (lastSpin % 2 === 0) {
-                    if (lastSpin !== 0) {
-                        balance = balance + betAmt * 2
-                    }
-                }
-            };
-            if (chipsPlaced[i] === "odd") {
-                if (lastSpin % 2 === 1) {
-                    if (lastSpin !== 0) {
-                        balance = balance + betAmt * 2
-                    }
-                }
-            };
-        };
+    $('#autoSpin').on("click", function() {
+        clearInterval(auto, 500);
 
-        if (red.includes(lastSpin)) {
-            document.getElementById("lastSpin").style.color = "red"
-        };
-
-        if (black.includes(lastSpin)) {
-            document.getElementById("lastSpin").style.color = "black"
-        };
-
-        if (lastSpin === 0) {
-            document.getElementById("lastSpin").style.color = "green"
-        }
-
-        $('#lastSpin').html(lastSpin);
-
-        if (black.includes(lastSpin)) {
-            var lastSpinDisplay = "<a class='black-text col s2'>" + lastSpin + " </a>";
-            $('#spinDisplay').append(lastSpinDisplay)
-        };
-
-        if (red.includes(lastSpin)) {
-            var lastSpinDisplay = "<a class='red-text col s2'>" + lastSpin + " </a> ";
-            $('#spinDisplay').append(lastSpinDisplay)
-        };
-
-        if (zero.includes(lastSpin)) {
-            var lastSpinDisplay = "<a class='green-text col s2'>" + lastSpin + " </a> ";
-            $('#spinDisplay').append(lastSpinDisplay)
-        };
-
-        postBalance = balance;
-        payout = postBalance - prevBalance;
-
-        if (payout === 0) {
-            $('#payout').html("<a class='black-text'>" + (Math.round(payout * 10000000) / 10000000) + "</a>")
-        }
-
-        if (payout < 0) {
-            $('#payout').html("<a class='red-text'>" + (Math.round(payout * 10000000) / 10000000) + "</a>")
-        };
-
-        if (payout > 0) {
-            $('#payout').html("<a class='green-text'>" + (Math.round(payout * 10000000) / 10000000) + "</a>")
-        };
-
-        $('#balance').html((Math.round(balance * 10000000) / 10000000));
-        console.log("Bet Amount: " + betAmt + ", TotalBet: " + Math.round(totalBet * 10000000) / 10000000)
-        console.log("Payout: " + (Math.round(payout * 10000000) / 10000000) + ", Current Balance: " + (Math.round(balance * 10000000) / 10000000));
-        console.log("Last Spin: " + lastSpin)
+        auto = setInterval(spinFunction, 500);
+        spinFunction();
+    });
+    
+    $('#stopAuto').on("click", function() {
+        clearInterval(auto);
     });
 
     console.log("Javascript connected!")

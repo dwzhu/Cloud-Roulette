@@ -45,11 +45,16 @@ button {
 }
 
 #currentBetPanel {
-    min-height: 150px;
+    min-height: 330px;
+    max-height: 330px;
+    overflow: scroll;
+    text-align: center;
 }
 
 #spinHistory {
-    min-height: 150px;
+    min-height: 330px;
+    max-height: 330px;
+    overflow: scroll;
 }
 
 
@@ -74,4 +79,12 @@ button {
 
 #payoutRules {
 	text-align: center;
+}
+
+#redHistory {
+    text-align: right;
+}
+
+#zeroHistory {
+    text-align: center;
 }
